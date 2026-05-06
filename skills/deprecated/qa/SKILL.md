@@ -1,6 +1,6 @@
 ---
 name: qa
-description: Interactive QA session where user reports bugs or issues conversationally, and the agent files GitHub issues. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, file issues conversationally, or mentions "QA session".
+description: Interactive QA session where user reports bugs or issues conversationally, and the agent files GitHub issues. Explores the codebase with Pi tools for context and domain language. Use when user wants to report bugs, do QA, file issues conversationally, or mentions "QA session".
 ---
 
 # QA Session
@@ -19,9 +19,9 @@ Let the user describe the problem in their own words. Ask **at most 2-3 short cl
 
 Do NOT over-interview. If the description is clear enough to file, move on.
 
-### 2. Explore the codebase in the background
+### 2. Explore the codebase
 
-While talking to the user, kick off an Agent (subagent_type=Explore) in the background to understand the relevant area. The goal is NOT to find a fix — it's to:
+Use Pi's available tools (`read`, `bash`/`rg`, and any project-specific tools) to understand the relevant area. If you can safely do this while continuing the conversation, keep the exploration lightweight; otherwise pause briefly and report what you checked. The goal is NOT to find a fix — it's to:
 
 - Learn the domain language used in that area (check UBIQUITOUS_LANGUAGE.md)
 - Understand what the feature is supposed to do

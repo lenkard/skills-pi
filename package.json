@@ -1,0 +1,17 @@
+{
+  "name": "skills-pi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pi-adapted fork of Matt Pocock's agent skills.",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "agent-skills",
+    "pi-skills"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

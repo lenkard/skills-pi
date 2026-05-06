@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Links all skills in the repository to ~/.claude/skills, so that
-# they can be used by the local Claude CLI.
+# Links all non-deprecated skills in the repository to ~/.pi/agent/skills,
+# so they can be used by the local Pi agent.
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-DEST="$HOME/.claude/skills"
+DEST="$HOME/.pi/agent/skills"
 
-# If ~/.claude/skills is a symlink that resolves into this repo, we'd end up
-# writing the per-skill symlinks back into the repo's own skills/ tree. Detect
-# and bail out instead of polluting the working copy.
+# If ~/.pi/agent/skills is a symlink that resolves into this repo, we'd end up
+# writing per-skill symlinks back into the repo's own skills/ tree. Detect and bail out.
 if [ -L "$DEST" ]; then
   resolved="$(readlink -f "$DEST")"
   case "$resolved" in

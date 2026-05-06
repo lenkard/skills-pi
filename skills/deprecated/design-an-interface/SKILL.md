@@ -1,6 +1,6 @@
 ---
 name: design-an-interface
-description: Generate multiple radically different interface designs for a module using parallel sub-agents. Use when user wants to design an API, explore interface options, compare module shapes, or mentions "design it twice".
+description: Generate multiple radically different interface designs for a module using Pi-friendly multi-pass design. Use when user wants to design an API, explore interface options, compare module shapes, or mentions "design it twice".
 ---
 
 # Design an Interface
@@ -21,22 +21,22 @@ Before designing, understand:
 
 Ask: "What does this module need to do? Who will use it?"
 
-### 2. Generate Designs (Parallel Sub-Agents)
+### 2. Generate Designs (Pi Multi-Pass)
 
-Spawn 3+ sub-agents simultaneously using Task tool. Each must produce a **radically different** approach.
+Generate 3+ designs as separate passes. If the Pi session provides a parallel task/tool facility, use it; otherwise do the passes sequentially in one response. Each pass must produce a **radically different** approach.
 
 ```
-Prompt template for each sub-agent:
+Prompt template for each pass:
 
 Design an interface for: [module description]
 
 Requirements: [gathered requirements]
 
 Constraints for this design: [assign a different constraint to each agent]
-- Agent 1: "Minimize method count - aim for 1-3 methods max"
-- Agent 2: "Maximize flexibility - support many use cases"
-- Agent 3: "Optimize for the most common case"
-- Agent 4: "Take inspiration from [specific paradigm/library]"
+- Pass 1: "Minimize method count - aim for 1-3 methods max"
+- Pass 2: "Maximize flexibility - support many use cases"
+- Pass 3: "Optimize for the most common case"
+- Pass 4: "Take inspiration from [specific paradigm/library]"
 
 Output format:
 1. Interface signature (types/methods)
@@ -88,7 +88,7 @@ From "A Philosophy of Software Design":
 
 ## Anti-Patterns
 
-- Don't let sub-agents produce similar designs - enforce radical difference
+- Don't let passes produce similar designs - enforce radical difference
 - Don't skip comparison - the value is in contrast
 - Don't implement - this is purely about interface shape
 - Don't evaluate based on implementation effort
